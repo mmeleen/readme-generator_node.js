@@ -59,9 +59,40 @@ function promptUser() {
   ]);
 }
 
-function generateREADME(answers) {
-  return `
-# Testing README Write`;
+function generateREADME(responses) {
+  return `# ${responses.title}  
+
+## Description  
+${responses.description}  
+
+## Table of Contents  
+- [Installation](#installation)  
+- [Usage](#usage)  
+- [License](#license)  
+- [Contributing](#contributing)  
+- [Tests](#tests)  
+- [Questions](#questions) 
+
+## Installation  
+${responses.installation}  
+
+## Usage  
+${responses.usage}  
+
+## License  
+${responses.license}  
+
+## Contributing  
+${responses.contributing}  
+
+## Tests  
+${responses.tests}  
+
+## Questions  
+GitHub: www.github.com/${responses.github}  
+Email: ${responses.email}
+
+`;
 }
 
 async function init() {
