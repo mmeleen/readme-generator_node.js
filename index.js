@@ -8,33 +8,53 @@ function promptUser() {
   return inquirer.prompt([
     {
       type: "input",
-      name: "name",
-      message: "What is your name?"
+      name: "title",
+      message: "Project title:"
     },
     {
       type: "input",
-      name: "location",
-      message: "Where are you from?"
+      name: "description",
+      message: "Project description:"
     },
     {
       type: "input",
-      name: "hobby",
-      message: "What is your favorite hobby?"
+      name: "installation",
+      message: "Installation instructions:"
     },
     {
       type: "input",
-      name: "food",
-      message: "What is your favorite food?"
+      name: "usage",
+      message: "Usage information:"
+    },
+    {
+      type: "input",
+      name: "contributing",
+      message: "Contribution guidelines:"
+    },
+    {
+      type: "input",
+      name: "tests",
+      message: "Test instructions:"
     },
     {
       type: "input",
       name: "github",
-      message: "Enter your GitHub Username"
+      message: "GitHub username:"
     },
     {
       type: "input",
-      name: "linkedin",
-      message: "Enter your LinkedIn URL."
+      name: "email",
+      message: "Email address:"
+    },
+    {
+      type: "list",
+      message: "License:",
+      name: "license",
+      choices: [
+        "license1",
+        "license2",
+        "license3"
+      ]
     }
   ]);
 }
