@@ -60,6 +60,7 @@ function promptUser() {
   ]);
 }
 
+// function to generate README content from responses
 function generateREADME(responses) {
   var badgeLink;
   if (responses.license === "ISC") {
@@ -94,7 +95,7 @@ ${responses.installation}
 ${responses.usage}  
 
 ## License  
-${responses.license}  
+This application is covered under the ${responses.license} license.  
 
 ## Contributing  
 ${responses.contributing}  
@@ -110,8 +111,8 @@ Email: ${responses.email}
 `;
 }
 
+// prompt user, pass responses to generate function, write to generated readme file
 async function init() {
-  console.log("Test")
   try {
     const responses = await promptUser();
 
@@ -119,7 +120,7 @@ async function init() {
 
     await writeFileAsync("genReadme.md", readme);
 
-    console.log("Successfully wrote to genReadme.md");
+    console.log("genReadme.md created");
   } catch(err) {
     console.log(err);
   }
