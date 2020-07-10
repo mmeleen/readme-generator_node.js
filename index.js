@@ -51,19 +51,33 @@ function promptUser() {
       message: "License:",
       name: "license",
       choices: [
-        "license1",
-        "license2",
-        "license3"
+        "ISC",
+        "Apache 2.0",
+        "GNU GPLv3",
+        "MIT"
       ]
     }
   ]);
 }
 
 function generateREADME(responses) {
+  var badgeLink;
+  if (responses.license === "ISC") {
+    badgeLink = "![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)";
+  } else if (responses.license === "Apache 2.0") {
+    badgeLink = "![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)";
+  } else if (responses.license === "GNU GPLv3") {
+    badgeLink = "![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)";
+  } else {
+    badgeLink = "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)";
+  }
+
   return `# ${responses.title}  
 
 ## Description  
 ${responses.description}  
+
+${badgeLink}   
 
 ## Table of Contents  
 - [Installation](#installation)  
@@ -89,6 +103,7 @@ ${responses.contributing}
 ${responses.tests}  
 
 ## Questions  
+For additional information, please send me an email or visit my GitHub profile.
 GitHub: www.github.com/${responses.github}  
 Email: ${responses.email}
 
